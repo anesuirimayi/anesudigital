@@ -1,5 +1,4 @@
-So now here is the entire html. i want more stuff. what do you think is missing<!DOCTYPE html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,297 +6,144 @@ So now here is the entire html. i want more stuff. what do you think is missing<
   <title>Anesu Digital Lounge</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="icon" href="images/logo1..png" type="image/png">
 
-<style>
-  /* Glow text effect */
-  .glow-text {
-    text-shadow:
-      0 0 6px currentColor,
-      0 0 15px currentColor,
-      0 0 30px currentColor;
-  }
+ <style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
 
-  /* Icons placeholder: complex futuristic style */
-  .futuristic-icon-webdesign {
-    width: 72px; height: 72px;
-    background:
-      radial-gradient(circle at center, #32e0c4 10%, transparent 70%),
-      repeating-conic-gradient(from 0deg, #0f0f0f 0deg 15deg, #32e0c4 15deg 30deg);
-    border-radius: 20px;
-    box-shadow: 0 0 20px #32e0c4 inset;
-    position: relative;
-    animation: pulseCyan 4s infinite ease-in-out;
-  }
-  .futuristic-icon-store {
-    width: 72px; height: 72px;
-    background:
-      radial-gradient(circle at center, #a16de0 20%, transparent 75%),
-      repeating-conic-gradient(from 0deg, #1a0a3d 0deg 10deg, #a16de0 10deg 20deg);
-    border-radius: 20px;
-    box-shadow: 0 0 20px #a16de0 inset;
-    position: relative;
-    animation: pulsePurple 4s infinite ease-in-out;
-  }
-  .futuristic-icon-music {
-    width: 72px; height: 72px;
-    background:
-      radial-gradient(circle at center, #5ddc89 15%, transparent 70%),
-      repeating-conic-gradient(from 0deg, #143a0f 0deg 10deg, #5ddc89 10deg 20deg);
-    border-radius: 20px;
-    box-shadow: 0 0 20px #5ddc89 inset;
-    position: relative;
-    animation: pulseGreen 4s infinite ease-in-out;
-  }
+    .animate-fadeInUp {
+      animation: fadeInUp 0.7s ease forwards;
+    }
+    .animate-fadeInUp.delay-300 {
+      animation-delay: 0.3s;
+    }
+    .animate-fadeInUp.delay-500 {
+      animation-delay: 0.5s;
+    }
+    .animate-fadeInUp.delay-700 {
+      animation-delay: 0.7s;
+    }
+    .animate-fadeInUp.delay-900 {
+      animation-delay: 0.9s;
+    }
+    .animate-fadeInDown {
+      animation: fadeInDown 0.7s ease forwards;
+    }
+    .animate-bounce {
+      animation: bounce 2s infinite;
+    }
 
-  /* Animations */
-  @keyframes pulseCyan {
-    0%, 100% { box-shadow: 0 0 20px #32e0c4 inset; }
-    50% { box-shadow: 0 0 30px #32e0c4 inset; }
-  }
-  @keyframes pulsePurple {
-    0%, 100% { box-shadow: 0 0 20px #a16de0 inset; }
-    50% { box-shadow: 0 0 30px #a16de0 inset; }
-  }
-  @keyframes pulseGreen {
-    0%, 100% { box-shadow: 0 0 20px #5ddc89 inset; }
-    50% { box-shadow: 0 0 30px #5ddc89 inset; }
-  }
-
-  /* Product card hover smooth scaling */
-  .product-card {
-    will-change: transform;
+html {
+    scroll-behavior: smooth;
   }
 
-</style>
+  </style>
+
 
 </head>
 <body class="bg-gray-950 text-white font-sans">
 
-  <!-- Header -->
-
+<!-- Header -->
   <header x-data="{ mobileMenu: false, dropdown: false }" class="fixed top-0 w-full z-50 backdrop-blur bg-white/5 shadow-md">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <div class="text-2xl font-bold tracking-widest text-cyan-400">Anesu Digital Lounge</div>
 
-```
-  <nav class="hidden md:flex gap-8 items-center">
-    <a href="#" class="relative group">
-      <span class="text-white group-hover:text-cyan-400 transition">Home</span>
-      <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
-    </a>
-    <a href="#" class="relative group">
-      <span class="text-white group-hover:text-cyan-400 transition">Services</span>
-      <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
-    </a>
-    <div @mouseenter="dropdown = true" @mouseleave="dropdown = false" class="relative">
-      <button class="flex items-center gap-1 text-white hover:text-cyan-400 transition">
-        More
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M19 9l-7 7-7-7" />
+      <nav class="hidden md:flex gap-8 items-center">
+        <a href="index.html" class="relative group">
+          <span class="text-white group-hover:text-cyan-400 transition">Home</span>
+          <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="shop.html" class="relative group">
+          <span class="text-white group-hover:text-cyan-400 transition">Shop</span>
+          <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <div @mouseenter="dropdown = true" @mouseleave="dropdown = false" class="relative">     
+         <button class="flex items-center gap-1 text-white hover:text-cyan-400 transition">
+            More  
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+     
+          <div x-show="dropdown" x-transition class="absolute top-full mt-2 w-40 bg-gray-900 rounded-lg shadow-lg py-2">
+            <a href="#about-skills" class="block px-4 py-2 hover:bg-cyan-600 transition">Portfolio</a>
+            <a href="#test" class="block px-4 py-2 hover:bg-cyan-600 transition">Testimonials</a>
+            <a href="#footer" class="block px-4 py-2 hover:bg-cyan-600 transition">Email</a>
+          </div>
+        </div>
+        <a href="#footer" class="bg-cyan-500 hover:bg-cyan-600 text-white px-4 py-2 rounded-xl transition">Contact</a>
+      </nav>
+
+      <!-- Mobile toggle -->
+      <button @click="mobileMenu = !mobileMenu" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path :class="{'hidden': mobileMenu}" d="M4 6h16M4 12h16M4 18h16" />
+          <path :class="{'hidden': !mobileMenu}" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
-      <div x-show="dropdown" x-transition class="absolute top-full mt-2 w-40 bg-gray-900 rounded-lg shadow-lg py-2">
-        <a href="#" class="block px-4 py-2 hover:bg-cyan-600 transition">Portfolio</a>
-        <a href="#" class="block px-4 py-2 hover:bg-cyan-600 transition">Testimonials</a>
-        <a href="#" class="block px-4 py-2 hover:bg-cyan-600 transition">Blog</a>
-      </div>
     </div>
-    <a href="#" class="bg-cyan-500 hover:bg-cyan-600 text-white px-4 py-2 rounded-xl transition">Contact</a>
-  </nav>
 
-  <!-- Mobile toggle -->
-  <button @click="mobileMenu = !mobileMenu" class="md:hidden focus:outline-none">
-    <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-      <path :class="{'hidden': mobileMenu}" d="M4 6h16M4 12h16M4 18h16" />
-      <path :class="{'hidden': !mobileMenu}" d="M6 18L18 6M6 6l12 12" />
-    </svg>
-  </button>
+    <!-- Mobile Nav -->
+<div x-show="mobileMenu" x-transition class="md:hidden px-6 pt-6 pb-20 rounded-b-3xl shadow-2xl backdrop-blur-md text-white border-t-4 border-purple-500" style="background: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(128,0,128,0.7), rgba(0,255,255,0.5));">
+  <a href="index.html" class="block py-4 px-3 rounded-lg hover:bg-white/10 hover:text-cyan-300 font-semibold transition">Home</a>
+  <a href="shop.html" class="block py-4 px-3 rounded-lg hover:bg-white/10 hover:text-cyan-300 font-semibold transition">Shop</a>
+  <a href="#about-skills" class="block py-4 px-3 rounded-lg hover:bg-white/10 hover:text-cyan-300 font-semibold transition">Portfolio</a>
+  <a href="#test" class="block py-4 px-3 rounded-lg hover:bg-white/10 hover:text-cyan-300 font-semibold transition">Testimonials</a>
+  <a href="#footer" class="block py-4 px-3 rounded-lg hover:bg-white/10 hover:text-cyan-300 font-semibold transition">Contact</a>
 </div>
 
-<!-- Mobile Nav -->
-<div x-show="mobileMenu" x-transition class="md:hidden bg-gray-900 text-white px-6 pb-4">
-  <a href="#" class="block py-2 border-b border-gray-700">Home</a>
-  <a href="#" class="block py-2 border-b border-gray-700">Services</a>
-  <a href="#" class="block py-2 border-b border-gray-700">Portfolio</a>
-  <a href="#" class="block py-2 border-b border-gray-700">Testimonials</a>
-  <a href="#" class="block py-2">Contact</a>
-</div>
-```
 
   </header>
 
-  <!-- Hero Section -->
 
-  <section class="h-screen flex items-center justify-center relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/30 via-transparent to-purple-900/30 z-0"></div>
-    <div class="absolute top-[-100px] left-[-100px] w-[600px] h-[600px] bg-cyan-500 blur-3xl opacity-20 rounded-full animate-pulse"></div>
-    <div class="absolute bottom-[-80px] right-[-80px] w-[400px] h-[400px] bg-purple-600 blur-2xl opacity-30 rounded-full animate-pulse"></div>
 
-```
-<div class="z-10 text-center px-6">
-  <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 drop-shadow-[0_1px_15px_rgba(0,255,255,0.5)]">
-    Welcome to the Future <br /> of Digital Innovation
-  </h1>
-  <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-    Anesu Digital Lounge — Your one-stop hub for design, development, strategy, and digital vibes.
-  </p>
-  <a href="#" class="inline-block px-8 py-3 text-lg font-semibold bg-cyan-500 hover:bg-cyan-600 rounded-full transition-all shadow-lg">
-    Explore Now
-  </a>
-</div>
-```
 
-  </section>
 
-<section class="relative bg-[#0f0f0f] text-white py-20 px-8 md:px-24 overflow-hidden">
-  <div class="grid md:grid-cols-2 gap-16 items-center">
-    <!-- Left side: Text content -->
-    <div class="space-y-6" data-aos="fade-right">
-      <h2 class="text-4xl md:text-5xl font-bold leading-tight">
-        About <span class="text-[#32e0c4]">ADL</span>
-      </h2>
-      <p class="text-lg text-gray-300">
-        ADL is my digital house — my personal brand and business rolled into one. 
-        I'm Anesu, a passionate static web designer building sleek, modern websites for affordable prices. 
-        ADL is a growing hub for digital goods, music gear, accessories, clothing, and more...
-      </p>
 
-```
-  <div class="grid grid-cols-2 gap-6 text-center">
-    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-md shadow-lg border border-white/10">
-      <h3 class="text-2xl font-semibold text-[#32e0c4]">HTML</h3>
-      <p class="text-xl font-bold">80%</p>
-    </div>
-    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-md shadow-lg border border-white/10">
-      <h3 class="text-2xl font-semibold text-[#32e0c4]">CSS</h3>
-      <p class="text-xl font-bold">75%</p>
-    </div>
-    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-md shadow-lg border border-white/10">
-      <h3 class="text-2xl font-semibold text-[#32e0c4]">JS</h3>
-      <p class="text-xl font-bold">60%</p>
-    </div>
-    <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-md shadow-lg border border-white/10">
-      <h3 class="text-2xl font-semibold text-[#32e0c4]">Music Prod.</h3>
-      <p class="text-xl font-bold">90%</p>
-    </div>
-  </div>
 
-  <a href="#portfolio" class="inline-block mt-6 px-6 py-3 bg-[#32e0c4] text-black font-bold rounded-xl hover:bg-[#27b3a3] transition-all duration-300 shadow-lg">
-    Explore My Work
-  </a>
-</div>
 
-<!-- Right side: Image or Illustration -->
-<div class="relative" data-aos="fade-left">
-```
 
-  <div class="w-full h-[400px] bg-gradient-to-br from-[#4c1d95] to-[#32e0c4] rounded-3xl shadow-2xl border border-white/10 flex items-center justify-center relative overflow-hidden">
 
-```
-<!-- Soft glowing background behind image -->
-<div class="absolute w-[320px] h-[320px] rounded-full bg-[#32e0c4] blur-3xl opacity-20 z-0"></div>
 
-<!-- Image with layered depth and subtle shadow -->
-<img src="anesu.jpg" alt="Anesu Irimayi" class="relative z-10 rounded-2xl shadow-lg w-[350px] h-[350px] object-cover border-4 border-white/10 transition-transform duration-500 hover:scale-105" />
-```
 
-  </div>
-</div>
 
-  </div>
 
-  <!-- Decorative Animated Circles -->
 
-  <div class="absolute -top-10 -left-10 w-32 h-32 bg-[#32e0c4]/10 rounded-full animate-pulse blur-2xl"></div>
-  <div class="absolute bottom-0 right-0 w-40 h-40 bg-[#32e0c4]/10 rounded-full animate-ping blur-2xl"></div>
-</section>
 
-<section id="services-products-stats" class="bg-gradient-to-br from-[#0f0f0f] via-[#1e1e2f] to-[#4c1d95] py-20 px-6 text-white font-sans">
-  <div class="max-w-7xl mx-auto space-y-20">
 
-```
-<!-- SERVICES -->
-<div class="grid md:grid-cols-3 gap-12">
-  <!-- Web Design -->
-  <div class="service-card p-8 bg-[#121223] rounded-3xl shadow-lg border border-white/10 transform transition hover:scale-105 hover:shadow-cyan-500/60">
-    <div class="icon futuristic-icon-webdesign mx-auto mb-6"></div>
-    <h3 class="text-2xl font-extrabold mb-3 text-cyan-400 glow-text">Static Web Design</h3>
-    <p class="text-gray-300 leading-relaxed">
-      Building clean, responsive, static websites optimized for performance and style.
-    </p>
-  </div>
-  <!-- Digital Store -->
-  <div class="service-card p-8 bg-[#121223] rounded-3xl shadow-lg border border-white/10 transform transition hover:scale-105 hover:shadow-purple-500/60">
-    <div class="icon futuristic-icon-store mx-auto mb-6"></div>
-    <h3 class="text-2xl font-extrabold mb-3 text-purple-400 glow-text">Digital Store</h3>
-    <p class="text-gray-300 leading-relaxed">
-      Selling quality digital accessories & cool gadgets with style and ease.
-    </p>
 
-    <!-- Products -->
-    <div class="mt-8 space-y-6">
-      <!-- Headphones -->
-      <div class="product-card flex items-center bg-gradient-to-tr from-cyan-800/70 to-purple-800/70 rounded-xl p-4 shadow-lg border border-white/20 transition hover:scale-[1.04] hover:shadow-cyan-400/80">
-        <div class="product-image w-24 h-24 bg-gradient-to-tr from-cyan-500 to-cyan-300 rounded-lg shadow-inner flex items-center justify-center text-black font-bold text-lg select-none">
-          🎧
-        </div>
-        <div class="ml-5 flex flex-col">
-          <span class="text-xl font-semibold">Dixon Headphones</span>
-          <span class="text-cyan-300 font-bold text-lg mt-1">$25</span>
-        </div>
-      </div>
-      <!-- Watch -->
-      <div class="product-card flex items-center bg-gradient-to-tr from-purple-800/70 to-purple-600/70 rounded-xl p-4 shadow-lg border border-white/20 transition hover:scale-[1.04] hover:shadow-purple-400/80">
-        <div class="product-image w-24 h-24 bg-gradient-to-tr from-purple-500 to-purple-300 rounded-lg shadow-inner flex items-center justify-center text-black font-bold text-lg select-none">
-          ⌚
-        </div>
-        <div class="ml-5 flex flex-col">
-          <span class="text-xl font-semibold">Smart Watch</span>
-          <span class="text-purple-300 font-bold text-lg mt-1">$70</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Music Production -->
-  <div class="service-card p-8 bg-[#121223] rounded-3xl shadow-lg border border-white/10 transform transition hover:scale-105 hover:shadow-green-500/60">
-    <div class="icon futuristic-icon-music mx-auto mb-6"></div>
-    <h3 class="text-2xl font-extrabold mb-3 text-green-400 glow-text">Music Production</h3>
-    <p class="text-gray-300 leading-relaxed">
-      Creating beats, mixing, and mastering to bring your sounds to life.
-    </p>
-  </div>
-</div>
-
-<!-- STATS -->
-<div class="stats-grid mt-16 grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
-  <div class="stat-card p-6 bg-[#121223] rounded-3xl shadow-lg border border-white/10 hover:shadow-cyan-500/50 cursor-default">
-    <h4 class="text-4xl font-extrabold text-cyan-400 glow-text counter" data-target="2">0</h4>
-    <p class="mt-2 uppercase tracking-wider text-gray-400 font-semibold">Projects Done</p>
-  </div>
-  <div class="stat-card p-6 bg-[#121223] rounded-3xl shadow-lg border border-white/10 hover:shadow-purple-500/50 cursor-default">
-    <h4 class="text-4xl font-extrabold text-purple-400 glow-text counter" data-target="1">0</h4>
-    <p class="mt-2 uppercase tracking-wider text-gray-400 font-semibold">Years Experience</p>
-  </div>
-  <div class="stat-card p-6 bg-[#121223] rounded-3xl shadow-lg border border-white/10 hover:shadow-green-500/50 cursor-default">
-    <h4 class="text-4xl font-extrabold text-green-400 glow-text counter" data-target="2">0</h4>
-    <p class="mt-2 uppercase tracking-wider text-gray-400 font-semibold">Happy Clients</p>
-    <p class="text-sm mt-1 text-gray-500 italic">Lisa &amp; Nigel</p>
-  </div>
-  <div class="stat-card p-6 bg-[#121223] rounded-3xl shadow-lg border border-white/10 hover:shadow-pink-500/50 cursor-default">
-    <h4 class="text-4xl font-extrabold text-pink-400 glow-text counter" data-target="10">0</h4>
-    <p class="mt-2 uppercase tracking-wider text-gray-400 font-semibold">Products Sold</p>
-  </div>
-</div>
-```
-
-  </div>
-</section>
 
 <!-- Footer Section -->
-
-<footer class="relative bg-gradient-to-tr from-[#0f0f0f] via-[#140b2d] to-[#321c6d] text-white px-8 py-12 overflow-hidden">
+<footer id="footer" class="relative bg-gradient-to-tr from-[#0f0f0f] via-[#140b2d] to-[#321c6d] text-white px-8 py-12 overflow-hidden">
   <!-- Animated Gradient Wave Separator -->
   <div class="absolute top-0 left-0 w-full h-20 overflow-hidden pointer-events-none">
     <svg class="w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -337,32 +183,47 @@ So now here is the entire html. i want more stuff. what do you think is missing<
       </p>
     </div>
 
-```
-<!-- Contact Form -->
-<div>
-  <h3 class="text-2xl font-bold tracking-wide mb-4">Send a Message</h3>
-  <form action="mailto:praiseirimayi8@gmail.com" method="GET" enctype="text/plain" class="flex flex-col gap-4" onsubmit="return sendMail(event)">
-    <input type="text" name="name" placeholder="Your Name" required class="p-3 rounded-md bg-[#1c1c3a] text-white placeholder-[#32e0c4] border border-[#32e0c4] focus:outline-none focus:ring-2 focus:ring-[#32e0c4]" />
-    <input type="email" name="email" placeholder="Your Email" required class="p-3 rounded-md bg-[#1c1c3a] text-white placeholder-[#32e0c4] border border-[#32e0c4] focus:outline-none focus:ring-2 focus:ring-[#32e0c4]" />
-    <textarea name="message" rows="4" placeholder="Your Message" required class="p-3 rounded-md bg-[#1c1c3a] text-white placeholder-[#32e0c4] border border-[#32e0c4] focus:outline-none focus:ring-2 focus:ring-[#32e0c4]"></textarea>
-    <button type="submit" class="bg-[#32e0c4] text-black font-bold py-3 rounded-md hover:bg-[#28b6a8] transition">Send</button>
-  </form>
-</div>
 
-<!-- Back to Top Button -->
-<div class="flex justify-center items-center md:justify-end">
-  <button id="backToTop" class="bg-[#32e0c4] text-black p-4 rounded-full shadow-lg hover:bg-[#28b6a8] transition fixed bottom-8 right-8 opacity-0 pointer-events-none z-50" aria-label="Back to top">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 19V6M5 13l7-7 7 7" />
-    </svg>
-  </button>
-</div>
-```
 
+ <div>
+    <img src="images/logo1..png" alt="Taps Media Logo" style="width: 300px; height: auto;">
+  </div>
+
+
+    <!-- Back to Top Button -->
+    <div class="flex justify-center items-center md:justify-end">
+      <button id="backToTop" class="bg-[#32e0c4] text-black p-4 rounded-full shadow-lg hover:bg-[#28b6a8] transition fixed bottom-8 right-8 opacity-0 pointer-events-none z-50" aria-label="Back to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 19V6M5 13l7-7 7 7" />
+        </svg>
+      </button>
+    </div>
   </div>
 
   <p class="text-center mt-12 text-sm text-white/50 select-none">© 2025 Anesu Digital Lounge. All rights reserved.</p>
 </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  const slider = document.getElementById('testimonial-slider');
+  let index = 0;
+  setInterval(() => {
+    index = (index + 1) % 3;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }, 6000);
+</script>
+
+
 
 <script>
   // Back to top button logic
@@ -415,7 +276,6 @@ updateCount();
 </script>
 
 <!-- AOS Animations CDN -->
-
 <script>
   AOS.init();
 </script>

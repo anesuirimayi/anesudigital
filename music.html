@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beats by Anesu | Xherani, Trap & Drill</title>
+  <meta name="description" content="Buy and download original beats by Anesu. Trap, Drill, Afro & Xherani – a unique sound experience." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="icon" href="images/logo1..png" type="image/png">
+
+ <style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .animate-fadeInUp {
+      animation: fadeInUp 0.7s ease forwards;
+    }
+    .animate-fadeInUp.delay-300 {
+      animation-delay: 0.3s;
+    }
+    .animate-fadeInUp.delay-500 {
+      animation-delay: 0.5s;
+    }
+    .animate-fadeInUp.delay-700 {
+      animation-delay: 0.7s;
+    }
+    .animate-fadeInUp.delay-900 {
+      animation-delay: 0.9s;
+    }
+    .animate-fadeInDown {
+      animation: fadeInDown 0.7s ease forwards;
+    }
+    .animate-bounce {
+      animation: bounce 2s infinite;
+    }
+
+html {
+    scroll-behavior: smooth;
+  }
+
+#hero-beats {
+  position: relative;
+  padding: 6rem 2rem;
+  text-align: center;
+  overflow: hidden;
+
+  /* Layered background: dark overlay + subtle image */
+  background: 
+    linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), /* dark overlay */
+    url('images/hpiano.jpg') center center / cover no-repeat;
+
+  color: #00FFFF;
+  font-family: 'Orbitron', sans-serif;
+}
+
+#hero-beats h1 {
+  font-size: 3.5rem;
+  color: #00FFFF;
+  text-shadow: 0 0 5px #00FFFF, 0 0 30px #7B2FF7;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.15em;
+  font-family: 'Orbitron', sans-serif;
+}
+
+#hero-beats p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.25rem;
+  color: #7B2FF7;
+  text-shadow: 0 0 10px #7B2FF7;
+  margin-bottom: 3rem;
+}
+
+.soundwave-animation {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 20px;
+  background: linear-gradient(90deg, #00ffff 0%, #7b2ff7 100%);
+  border-radius: 10px;
+  animation: pulseSoundwave 2s infinite;
+}
+
+@keyframes pulseSoundwave {
+    0%, 100% {
+      box-shadow: 0 0 10px #00ffff, 0 0 20px #7b2ff7;
+    }
+    50% {
+      box-shadow: 0 0 25px #00ffff, 0 0 40px #7b2ff7;
+    }
+  }
+
+  /* Neon lines container animation can be added here */
+  .neon-lines {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    /* Add your custom animated neon line styles */
+  }
+
+
+
+
+
+
+/* Whole section fills viewport width */
+.beats-section {
+  background: linear-gradient(135deg, #0a0a12, #1e1e29);
+  color: #a0d8ff;
+  padding: 3rem 6vw 5rem;
+  font-family: 'Orbitron', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Section title */
+.section-title {
+  font-size: 2.8rem;
+  color: #50caff;
+  letter-spacing: 0.15em;
+  text-shadow: 0 0 8px #50caff;
+  margin-bottom: 0.3rem;
+}
+
+/* Intro text */
+.intro-text {
+  font-size: 1.15rem;
+  max-width: 800px;
+  text-align: center;
+  color: #a0d8ffcc;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+/* Grid container for beats */
+.beats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem 3rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Beat item card */
+.beat-item {
+  background: #121221;
+  border-radius: 8px;
+  box-shadow: 0 0 10px 1px rgba(80, 202, 255, 0.15);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.beat-item:hover {
+  box-shadow: 0 0 20px 3px #32c9ff88;
+}
+
+/* Beat image */
+.beat-image {
+  width: 100%;
+  border-radius: 6px;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+  filter: drop-shadow(0 0 3px #32c9ff88);
+}
+
+/* Beat details */
+.beat-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  color: #86c7ff;
+}
+
+/* Beat title */
+.beat-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #3ec1ff;
+  letter-spacing: 0.07em;
+}
+
+/* Beat meta info */
+.beat-meta {
+  font-size: 0.9rem;
+  color: #5ca6d3cc;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* Audio player */
+.audio-player {
+  width: 100%;
+  outline: none;
+  border-radius: 6px;
+  box-shadow: 0 0 8px #3ec1ff55;
+  background-color: #1b1b2a;
+  cursor: pointer;
+}
+
+/* Download link */
+.download-link {
+  margin-top: 0.3rem;
+  color: #50caff;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  align-self: flex-start;
+  padding: 0.2rem 0.8rem;
+  border-radius: 4px;
+  border: 1.5px solid #50caffaa;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.download-link:hover {
+  background-color: #50caff;
+  color: #0a0a12;
+  border-color: transparent;
+}
+
+/* Songs wrapper */
+.songs-wrapper {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+/* Subsection title */
+.subsection-title {
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  color: #3ec1ff;
+  margin-bottom: 1rem;
+  letter-spacing: 0.12em;
+}
+
+/* Song item */
+.song-item {
+  flex: 1 1 320px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  background: #121221;
+  border-radius: 10px;
+  box-shadow: 0 0 12px #3ec1ff33;
+  overflow: hidden;
+}
+
+/* Embedded YouTube iframe */
+.song-item iframe {
+  width: 100%;
+  height: 160px;
+  border: none;
+  filter: drop-shadow(0 0 5px #3ec1ff55);
+}
+
+/* Song title */
+.song-title {
+  text-align: center;
+  color: #50caff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  padding: 0.6rem 0;
+}
+
+/* CTA text */
+.cta-text {
+  color: #50caffcc;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 3rem;
+  letter-spacing: 0.05em;
+}
+
+/* WhatsApp link */
+.cta-link {
+  color: #32c9ff;
+  font-weight: 700;
+  text-decoration: underline;
+  transition: color 0.25s ease;
+}
+
+.cta-link:hover {
+  color: #86c7ff;
+}
+
+
+
+
+
+.record-flat {
+  background: #080808;
+  padding: 100px 5%;
+  color: #e0e0e0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.record-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.record-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.record-text h2 {
+  font-size: 2.2rem;
+  color: #7b2ff7;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #7b2ff7aa;
+}
+
+.record-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+.btn-glow {
+  background: #00ffff;
+  color: #000;
+  padding: 12px 25px;
+  border-radius: 40px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 0 20px #00ffff99;
+  transition: all 0.3s ease;
+}
+
+.btn-glow:hover {
+  background: #7b2ff7;
+  color: #fff;
+  box-shadow: 0 0 25px #7b2ff799;
+}
+
+.record-img {
+  flex: 1;
+  text-align: center;
+}
+
+.record-img img {
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 0 25px #00ffff44;
+}
+
+
+
+
+
+.producer-intro {
+  background: #0a0a0a;
+  padding: 80px 6% 60px;
+  color: #ccc;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.producer-container {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.producer-intro h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #7b2ff7;
+  text-shadow: 0 0 15px #7b2ff799;
+}
+
+.producer-intro p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  color: #00ffff;
+  font-weight: bold;
+  text-shadow: 0 0 10px #00ffff88;
+}
+
+
+
+
+
+
+
+  </style>
+
+
+</head>
+<body class="bg-gray-950 text-white font-sans">
+
+<!-- Header -->
+  <header x-data="{ mobileMenu: false, dropdown: false }" class="fixed top-0 w-full z-50 backdrop-blur bg-white/5 shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="text-2xl font-bold tracking-widest text-cyan-400">Anesu Digital Lounge</div>
+
+      <nav class="hidden md:flex gap-8 items-center">
+        <a href="index.html" class="relative group">
+          <span class="text-white group-hover:text-cyan-400 transition">Home</span>
+          <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        <a href="web.html" class="relative group">
+          <span class="text-white group-hover:text-cyan-400 transition">Web Designing</span>
+          <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span>
+        </a>
+        
+        <a href="#footer" class="bg-cyan-500 hover:bg-cyan-600 text-white px-4 py-2 rounded-xl transition">Contact</a>
+      </nav>
+
+      <!-- Mobile toggle -->
+      <button @click="mobileMenu = !mobileMenu" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path :class="{'hidden': mobileMenu}" d="M4 6h16M4 12h16M4 18h16" />
+          <path :class="{'hidden': !mobileMenu}" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Nav -->
+<div x-show="mobileMenu" x-transition class="md:hidden px-6 pt-6 pb-20 rounded-b-3xl shadow-2xl backdrop-blur-md text-white border-t-4 border-purple-500" style="background: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(128,0,128,0.7), rgba(0,255,255,0.5));">
+  <a href="index.html" class="block py-4 px-3 rounded-lg hover:bg-white/10 hover:text-cyan-300 font-semibold transition">Home</a>
+  <a href="web.html" class="block py-4 px-3 rounded-lg hover:bg-white/10 hover:text-cyan-300 font-semibold transition">Web Designing</a>
+  <a href="#footer" class="block py-4 px-3 rounded-lg hover:bg-white/10 hover:text-cyan-300 font-semibold transition">Contact</a>
+</div>
+
+  </header>
+
+<p>&nbsp</p>
+<p>&nbsp</p>
+<p>&nbsp</p>
+
+<section id="hero-beats">
+
+ 
+ <h1 class="text-5xl md:text-7xl font-extrabold tracking-wide text-cyan-400 text-center mb-6">
+  Prod by Me 🎧
+</h1>
+
+
+  <p>&nbsp</p>
+
+<!-- Soundwave animation placeholder -->
+  <div class="soundwave-animation"></div>
+ 
+</section>
+
+
+
+
+
+
+<section class="producer-intro">
+  <div class="producer-container">
+    <p>
+       I'm a music producer, songwriter, vocalist, and mixer
+      who started with heavy trap and hip hop roots. Over time, I evolved into a sound shifter, blending Afro, Drill,
+      Reggae, and even Pop into my catalogue.
+    </p>
+    <p>
+      My proudest creation? <span class="highlight">Xherani</span> — a genre I birthed from scratch. It’s where
+      African instrumentation collides with modern trap energy, raw emotions, and cinematic rhythm. That’s my soul
+      in audio form.
+    </p>
+    <p>
+      Whether it’s crafting custom beats, recording vocals, writing hooks, mixing, mastering or distributing music —
+      I do it all.
+    </p>
+  </div>
+</section>
+
+
+
+
+
+
+<section id="beats-section" class="beats-section">
+
+  <div class="beats-grid">
+
+    <article class="beat-item">
+      <img src="images/future1.webp" alt="Trap Beat 1" class="beat-image" />
+      <div class="beat-details">
+        <h3 class="beat-title">Ghost Mist | Future Type Beat</h3>
+        <p class="beat-meta">Trap • 2:42 • $15 (Free Download)</p>
+        <audio controls preload="none" class="audio-player">
+          <source src="music/plutotype1.mp3" type="audio/mp3" />
+        </audio>
+        <a href="music/plutotype1.mp3" download class="download-link">Download</a>
+      </div>
+    </article>
+
+<article class="beat-item">
+      <img src="images/yeat1.jpg" alt="Trap Beat 2" class="beat-image" />
+      <div class="beat-details">
+        <h3 class="beat-title">Elevate | Yeat Type Beat</h3>
+        <p class="beat-meta">Trap • 2:13 • $15 (Free Download)</p>
+        <audio controls preload="none" class="audio-player">
+          <source src="music/yeattype1.mp3" type="audio/mp3" />
+        </audio>
+        <a href="music/yeattype1.mp3" download class="download-link">Download</a>
+      </div>
+    </article>
+
+
+<article class="beat-item">
+      <img src="images/future2.jpeg" alt="Trap Beat 3" class="beat-image" />
+      <div class="beat-details">
+        <h3 class="beat-title">Preppin' | Future Type Beat</h3>
+        <p class="beat-meta">Trap • 2:57 • $15 (Free Download)</p>
+        <audio controls preload="none" class="audio-player">
+          <source src="music/plutotype2.mp3" type="audio/mp3" />
+        </audio>
+        <a href="music/plutotype2.mp3" download class="download-link">Download</a>
+      </div>
+    </article>
+
+
+<article class="beat-item">
+      <img src="images/xherani1.jpg" alt="Beat Image 4" class="beat-image" />
+      <div class="beat-details">
+        <h3 class="beat-title">Divine | Xherani Beat</h3>
+        <p class="beat-meta">Trap • 2:56 • $15 (Free Download)</p>
+        <audio controls preload="none" class="audio-player">
+          <source src="music/xheranitype1.mp3" type="audio/mp3" />
+        </audio>
+        <a href="music/xheranitype1.mp3" download class="download-link">Download</a>
+      </div>
+    </article>
+
+
+<article class="beat-item">
+      <img src="images/xherani2.jpg" alt="Beat Image 5" class="beat-image" />
+      <div class="beat-details">
+        <h3 class="beat-title">Musango | Xherani Beat</h3>
+        <p class="beat-meta">Trap • 2:57 • $15 (Free Download)</p>
+        <audio controls preload="none" class="audio-player">
+          <source src="music/xheranitype2.mp3" type="audio/mp3" />
+        </audio>
+        <a href="music/xheranitype2.mp3" download class="download-link">Download</a>
+      </div>
+    </article>
+
+
+<article class="beat-item">
+      <img src="images/xherani3.jpg" alt="Beat Image 6" class="beat-image" />
+      <div class="beat-details">
+        <h3 class="beat-title">Rodeo | Xherani Beat</h3>
+        <p class="beat-meta">Trap • 2:57 • $15 (Free Download)</p>
+        <audio controls preload="none" class="audio-player">
+          <source src="music/xheranitype3.mp3" type="audio/mp3" />
+        </audio>
+        <a href="music/xheranitype3.mp3" download class="download-link">Download</a>
+      </div>
+    </article>
+
+    <!-- Repeat for other beats (trap + xherani) -->
+
+    <!-- Songs -->
+    <div class="songs-wrapper">
+      <h3 class="subsection-title">Original Songs</h3>
+
+      <article class="song-item">
+        <iframe src="https://www.youtube.com/embed/24zbhqiEZNM" title="Locked In - AyPee Breed" frameborder="0" allowfullscreen></iframe>
+        <p class="song-title">Locked In</p>
+      </article>
+
+      <article class="song-item">
+        <iframe src="https://www.youtube.com/embed/WeTR_PhE2R8" title="Kudhara Kwakare" frameborder="0" allowfullscreen></iframe>
+        <p class="song-title">Kudhara Kwakare</p>
+      </article>
+    </div>
+  </div>
+
+  <p class="cta-text">
+    Want a personalized beat made just for you? <br />
+    <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" class="cta-link">DM me on WhatsApp</a>
+  </p>
+  
+</section>
+
+
+
+
+
+
+
+
+
+<section class="record-flat">
+  <div class="record-flex">
+    <div class="record-text">
+      <h2>🎙️ Mobile Studio Sessions</h2>
+      <p>
+        I don’t work from a booth. I bring the booth <b>to you</b>. Whether it's your living room, a rooftop, or a secret location—
+        I come loaded with pro studio equipment ready to record wherever the energy feels right.
+      </p>
+      <p>
+        High quality. On-the-go. No compromises. If you’re ready to make magic, I’m just a text away.
+      </p>
+      <a href="https://wa.me/+263777610645" target="_blank" class="btn-glow">Let’s Record</a>
+    </div>
+    <div class="record-img">
+      <img src="images/studio.jpeg" alt="Mobile Studio Setup">
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="w-full bg-[#0a0a0a] py-16 px-6 text-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold mb-12 text-center tracking-wide">🔥 Free Sound Packs</h2>
+
+    <div class="grid md:grid-cols-2 gap-12">
+      
+      <!-- Sound Pack 1 -->
+      <div class="flex flex-col md:flex-row bg-[#131313] rounded-2xl shadow-lg hover:shadow-xl transition overflow-hidden">
+        <img src="images/xherani2.jpg" alt="Xherani Sound Pack" class="md:w-48 w-full object-cover">
+        <div class="p-6 flex flex-col justify-between">
+          <div>
+            <h3 class="text-2xl font-semibold mb-2">Xherani Sound Pack</h3>
+            <p class="text-gray-400 mb-6">A gritty, atmospheric pack filled with textured sounds, ambient FX, and raw melodies. Perfect for dark trap and experimental vibes.</p>
+          </div>
+          <a href="files/xherani.rar" download class="self-start bg-pink-600 hover:bg-pink-700 text-white font-bold py-2 px-6 rounded-full transition">
+            ⬇️ Download Pack
+          </a>
+        </div>
+      </div>
+
+      <!-- Sound Pack 2 -->
+      <div class="flex flex-col md:flex-row bg-[#131313] rounded-2xl shadow-lg hover:shadow-xl transition overflow-hidden">
+        <img src="images/plane.jpg" alt="Goat Trap Drumkit" class="md:w-48 w-full object-cover">
+        <div class="p-6 flex flex-col justify-between">
+          <div>
+            <h3 class="text-2xl font-semibold mb-2">Goat Trap Drumkit</h3>
+            <p class="text-gray-400 mb-6">Packed with hard-hitting 808s, crisp snares, hi-hat rolls, and essential trap elements to elevate your beats instantly.</p>
+          </div>
+          <a href="files/trapvol.1.rar" download class="self-start bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-full transition">
+            ⬇️ Download Kit
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Footer Section -->
+<footer id="footer" class="relative bg-gradient-to-tr from-[#0f0f0f] via-[#140b2d] to-[#321c6d] text-white px-8 py-12 overflow-hidden">
+  <!-- Animated Gradient Wave Separator -->
+  <div class="absolute top-0 left-0 w-full h-20 overflow-hidden pointer-events-none">
+    <svg class="w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="url(#waveGradient)" d="M0,96L48,106.7C96,117,192,139,288,133.3C384,128,480,96,576,74.7C672,53,768,43,864,69.3C960,96,1056,160,1152,197.3C1248,235,1344,245,1392,250.7L1440,256L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z" />
+      <defs>
+        <linearGradient id="waveGradient" x1="0" y1="0" x2="0" y2="1">
+          <stop stop-color="#32e0c4" stop-opacity="0.7"/>
+          <stop offset="1" stop-color="#4c1d95" stop-opacity="0.7"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+    <!-- Contact Info -->
+    <div class="space-y-4">
+      <h3 class="text-2xl font-bold tracking-wide mb-4">Contact Me</h3>
+      <p class="flex items-center gap-3 text-lg">
+        <svg class="w-6 h-6 text-[#32e0c4] animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 2H8a6 6 0 00-6 6v8a6 6 0 006 6h8a6 6 0 006-6V8a6 6 0 00-6-6z" />
+          <path d="M22 12L12 22 2 12" />
+        </svg>
+        <a href="mailto:praiseirimayi8@gmail.com" class="hover:text-[#32e0c4] transition">praiseirimayi8@gmail.com</a>
+      </p>
+      <p class="flex items-center gap-3 text-lg">
+        <svg class="w-6 h-6 text-[#32e0c4] animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.86 19.86 0 01-8.63-3.07 19.49 19.49 0 01-6-6 19.86 19.86 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.57 12.57 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.57 12.57 0 002.81.7A2 2 0 0122 16.92z" />
+        </svg>
+        +263 777 610 645
+      </p>
+      <p class="flex items-center gap-3 text-lg">
+        <svg class="w-6 h-6 text-[#32e0c4] animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 11.5a8.38 8.38 0 01-9 8.5 8.38 8.38 0 01-9-8.5 8.38 8.38 0 019-8.5 8.38 8.38 0 019 8.5z" />
+          <path d="M17 11.5a4 4 0 01-5 4 4 4 0 01-5-4" />
+        </svg>
+        <span class="italic text-[#32e0c4]">Instagram:</span> anesudigitallounge
+      </p>
+    </div>
+
+
+
+ <div>
+    <img src="images/logo1..png" alt="Taps Media Logo" style="width: 300px; height: auto;">
+  </div>
+
+
+    <!-- Back to Top Button -->
+    <div class="flex justify-center items-center md:justify-end">
+      <button id="backToTop" class="bg-[#32e0c4] text-black p-4 rounded-full shadow-lg hover:bg-[#28b6a8] transition fixed bottom-8 right-8 opacity-0 pointer-events-none z-50" aria-label="Back to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 19V6M5 13l7-7 7 7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <p class="text-center mt-12 text-sm text-white/50 select-none">© 2025 Anesu Digital Lounge. All rights reserved.</p>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  const slider = document.getElementById('testimonial-slider');
+  let index = 0;
+  setInterval(() => {
+    index = (index + 1) % 3;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }, 6000);
+</script>
+
+
+
+<script>
+  // Back to top button logic
+  const backToTopBtn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+      backToTopBtn.classList.add('opacity-100');
+    } else {
+      backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+      backToTopBtn.classList.remove('opacity-100');
+    }
+  });
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Send mail via mailto form
+  function sendMail(event) {
+    event.preventDefault();
+    const form = event.target;
+    const name = encodeURIComponent(form.name.value);
+    const email = encodeURIComponent(form.email.value);
+    const message = encodeURIComponent(form.message.value);
+
+    const mailtoLink = `mailto:praiseirimayi8@gmail.com?subject=Message from ${name}&body=Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
+    window.location.href = mailtoLink;
+  }
+</script>
+
+<script>
+  // Animated Counters
+  const counters = document.querySelectorAll('.counter');
+  const speed = 200; // lower is faster
+
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      let count = +counter.innerText;
+      const increment =
+  if(count < target) {
+    counter.innerText = Math.ceil(count + increment);
+    setTimeout(updateCount, 15);
+  } else {
+    counter.innerText = target;
+  }
+};
+updateCount();
+});
+</script>
+
+<!-- AOS Animations CDN -->
+<script>
+  AOS.init();
+</script>
+
+</body>
+</html>
